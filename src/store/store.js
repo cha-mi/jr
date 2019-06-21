@@ -2,7 +2,10 @@ import {createStore} from 'redux'
 
 //仓库
 const defaultState={
-    Meg:'我是仓库'
+    isLogin:false,
+    token:null,
+    username:null,
+    history:null,     //路由对象
 };
 
 //reducer
@@ -17,9 +20,9 @@ const store =createStore((state=defaultState,action)=>{
         }
 });
 
-//自定义函数行为
+//action自定义函数行为
 const action= {ChangeState: (fn) => ({type: 'ChangeState', fn})};
 
 //注册监听器-测试
-store.subscribe(function () {console.log(store.getState())});
+store.subscribe(function () {console.log('仓库目前的值',store.getState())});
 export {store,action} ;
