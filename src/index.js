@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Root} from './router/router'
+import { Provider } from 'react-redux';
+import {store} from './store/store'
+import {Cookie,instance,LocalStorage} from './axios_config'
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+React.Component.prototype.$aixos = instance;
+React.Component.prototype.$cookie = Cookie;
+React.Component.prototype.$localStorage = LocalStorage;
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+
+
+ReactDOM.render(
+    <Provider store={store}>
+        <Root/>
+    </Provider>
+    , document.getElementById('root'));
+
