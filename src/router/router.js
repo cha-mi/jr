@@ -33,7 +33,13 @@ const routerConfig = [
         path:'/dyrouteTest/:kms/:mbs',
         component:dyrouteTest,
         auth:false
-    }
+    },
+    // // Get传值测试
+    //  {
+    //      path:'/dyrouteTest/:kms/:mbs',
+    //      component:dyrouteTest,
+    //      auth:false
+    //  }
 ];
 
 

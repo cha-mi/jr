@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // eslint-disable-next-line no-unused-vars
-import {Route, Redirect, withRouter} from 'react-router-dom';
+import {Redirect, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux'
 import {action} from "../store/store";
 import _404 from '../view/_404'
@@ -47,15 +47,22 @@ class RouteGuard extends Component {
 
         const {location, config} = this.props;
         const pathname = location.pathname;
-        // console.log(pathname.split('/'),pathname.split('/').length)
+
         /*解决动态路由参数问题（pathname.split('/').length===item.path.split('/:').length+1）*/
+        /*判断是否get路由search*/
+        let isGetRoute;
         const target = config.find(function (item) {
-            return '/' + pathname.split('/')[1] === item.path.split('/:')[0] && pathname.split('/').length === item.path.split('/:').length + 1
+            return ('/' + pathname.split('/')[1] === item.path.split('/:')[0] && pathname.split('/').length === item.path.split('/:').length + 1) || (isGetRoute = (pathname === item.path.split('/:')[0]))
         });
         // console.log(target.path.split('/:'))
+        console.log(target)
+        console.log(isGetRoute)
+        console.log(isGetRoute ? pathname : target.path);
 
         if (!this.state.RouteGuardIsStart_up) {
-            return <Route exact path={target.path} component={target.component}/>
+            if (target) {
+                return <Route exact path={isGetRoute ? pathname : target.path} component={target.component}/>
+            } else return <_404/>
         } else {
             //检测  已经登录||不需要检验
             if (target && (isLogin || !target.auth)) {
@@ -65,7 +72,8 @@ class RouteGuard extends Component {
                 if (!target.auth) {
                     console.log('不需要检验', '跳转至"', pathname, '"')
                 }
-                return <Route exact path={target.path} component={target.component}/>
+                // return <Route exact path={target.path} component={target.component}/>
+                return <Route exact path={isGetRoute ? pathname : target.path} component={target.component}/>
             }
             //检测  是否有Token
             else if (target && Cookie.length !== 0) {
@@ -75,7 +83,8 @@ class RouteGuard extends Component {
                 /*这里是模拟token检验*/
                 if (Math.random() > 0.5) {
                     console.log('Token通过验证')
-                    return <Route exact path={target.path} component={target.component}/>
+                    // return <Route exact path={target.path} component={target.component}/>
+                    return <Route exact path={isGetRoute ? pathname : target.path} component={target.component}/>
                 } else {
                     console.log('Token验证失败', '重定向到登录页')
                     // return <Redirect to='/login' />
