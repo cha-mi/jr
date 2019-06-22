@@ -50,10 +50,10 @@ const RouteGuardIsStart_up = true;
 const InspectionRules = (next, Redirect) => {
     /*案例：Math.random()代替登录状态或者token模拟*/
     if (Math.random() > 0.5) {
-        console.log('通过验证')
+        // console.log('通过验证')
         return next();
     } else {
-        console.log('验证失败')
+        // console.log('验证失败')
         return Redirect('/login')
     }
 }

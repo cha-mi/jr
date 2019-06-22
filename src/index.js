@@ -12,7 +12,6 @@ import style from './assets/default.module.sass'
 React.Component.prototype.$aixos = instance;
 React.Component.prototype.$cookie = Cookie;
 React.Component.prototype.$localStorage = LocalStorage;
-//全局样式
 React.Component.prototype.$style=style;
 
 ReactDOM.render(

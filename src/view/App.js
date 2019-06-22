@@ -1,15 +1,12 @@
-import React,{Component} from 'react';
+import React, {Component} from 'react';
 import logo from '../assets/logo.svg';
 import {connect} from 'react-redux'
 import {action} from "../store/store";
 
 class App extends Component
 {
-    // eslint-disable-next-line no-useless-constructor
     constructor(props){
         super(props);
-        console.log('~~~~~~~~~~~');
-        console.log('我是"/"',this);
         this.methods=this.methods.bind(this);
         this.methods()
     }
@@ -20,7 +17,6 @@ class App extends Component
                 store.username='JousenZhou'
             })
         }
-        console.log('methods已挂载')
     }
 
     render() {

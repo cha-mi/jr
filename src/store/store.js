@@ -1,6 +1,6 @@
 import {createStore} from 'redux'
 
-//仓库
+//store
 const defaultState={
     isLogin:false,
     token:null,

@@ -2,15 +2,18 @@ import axios from 'axios'
 import React from 'react';
 import {action, store} from './store/store'
 
-//是否启动axios拦截器
-let instanceIsStart_up = true
+
+/*
+*  是否启动axios拦截器,组件内使用this.$$aixos即可调用。
+* */
+let instanceIsStart_up = true;
 
 // 测试403跳转
 // setTimeout(function () {
 //     ToLogin();
 // },3000)
 
-/*跳至登录页*/
+/*跳至登录页（案例）*/
 function ToLogin() {
     let beforeTo = React.Component.history.location.pathname;
     React.Component.history.replace({pathname: '/login', state: {beforeTo}})
@@ -36,7 +39,7 @@ const reqErr =(status,other)=>{
         /*404 请求不存在*/
         case 404:{
             setTimeout(() => {
-                store.getState().history.push('/404')
+                React.Component.history.push('/404')
             }, 1000);
             console.log('请求资源不存在');
             break
@@ -66,7 +69,7 @@ let instance =axios.create({
 // instance.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 
 
-/*~~~~~~~~设置支持并发*/
+/*~~设置实例对象支持并发~~*/
 instance.spread=axios.spread;
 instance.all=axios.all;
 
@@ -84,7 +87,7 @@ else {
         },
         error => {
             Promise.error(error)
-        })
+        });
 
     /*设置响应拦截器*/
     instance.interceptors.response.use(
@@ -126,7 +129,7 @@ const Cookie = {
             if(arr[0] === name){
                 res = arr[1];
             }
-        })
+        });
         return res;
     },
     removeCookie : function(name,path){
@@ -142,7 +145,7 @@ const Cookie = {
         }
         return array;
     }
-}
+};
 
 /*LocalStorage封装*/
 const LocalStorage={
@@ -163,6 +166,6 @@ const LocalStorage={
         }
         return array;
     }
-}
+};
 
 export {Cookie,instance,LocalStorage};

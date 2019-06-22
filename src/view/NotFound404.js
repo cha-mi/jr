@@ -1,5 +1,6 @@
-import React,{Component} from 'react';
-export default class _404 extends Component
+import React, {Component} from 'react';
+
+export default class NotFound404 extends Component
 {
 
     // eslint-disable-next-line no-useless-constructor
