@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Root from './router/router'
-import { Provider } from 'react-redux';
+import {Root} from './router/router'
+import {Provider} from 'react-redux';
 import {store} from './store/store'
-import {Cookie,instance,LocalStorage} from './axios_config'
+import {Cookie, instance, LocalStorage} from './axios_config'
 import './assets/base.css';
 import style from './assets/default.module.sass'
 

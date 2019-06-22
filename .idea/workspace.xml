@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2491a127-f7cb-4800-a3a5-56e96235f479" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/RouteGuard.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/RouteGuard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/router.js" afterDir="false" />
     </list>
@@ -20,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+            <state relative-caret-position="54">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -38,10 +39,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/axios_config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+            <state relative-caret-position="162">
+              <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="10" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#116#125#0" />
               </folding>
             </state>
           </provider>
@@ -50,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/view/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="675">
+              <caret line="28" column="37" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="37" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -74,10 +76,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/router/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+            <state relative-caret-position="1350">
+              <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
+                <element signature="n#Root#0" />
               </folding>
             </state>
           </provider>
@@ -86,12 +89,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/router/RouteGuard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            <state relative-caret-position="-1458">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
-                <element signature="e#83#144#0" expanded="true" />
-                <element signature="n#!!block;n#componentWillMount#0;n#RouteGuard#0" />
-                <element signature="n#!!block;n#shouldComponentUpdate#0;n#RouteGuard#0" />
+                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#1210#1246#0" />
+                <element signature="e#1772#1811#0" />
+                <element signature="e#2014#2195#0" />
+                <element signature="e#2216#2236#0" />
               </folding>
             </state>
           </provider>
@@ -121,8 +126,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/package.json" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/router/RouteGuard.js" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/router/router.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/router/RouteGuard.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/router/router.js" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -138,7 +143,6 @@
         <option value="$PROJECT_DIR$/src/view/_404.js" />
         <option value="$PROJECT_DIR$/src/view/App.css" />
         <option value="$PROJECT_DIR$/src/view/abs.module.sass" />
-        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/view/home.js" />
         <option value="$PROJECT_DIR$/src/view/login.js" />
         <option value="$PROJECT_DIR$/src/assets/default.module.sass" />
@@ -147,16 +151,17 @@
         <option value="$PROJECT_DIR$/src/view/App.js" />
         <option value="$PROJECT_DIR$/src/view/test.js" />
         <option value="$PROJECT_DIR$/src/axios_config.js" />
-        <option value="$PROJECT_DIR$/src/router/router.js" />
+        <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/router/RouteGuard.js" />
+        <option value="$PROJECT_DIR$/src/router/router.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="298" />
-    <option name="y" value="145" />
+    <option name="x" value="351" />
+    <option name="y" value="29" />
     <option name="width" value="1940" />
-    <option name="height" value="1008" />
+    <option name="height" value="1003" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -164,7 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -181,18 +185,13 @@
               <item name="reacebasev_2.12" type="b2602c69:ProjectViewProjectNode" />
               <item name="reacebasev_2.12" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="reacebasev_2.12" type="b2602c69:ProjectViewProjectNode" />
-              <item name="reacebasev_2.12" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,7 +275,8 @@
       <updated>1561079858758</updated>
       <workItem from="1561079859965" duration="37962000" />
       <workItem from="1561121931454" duration="1000" />
-      <workItem from="1561164781196" duration="4298000" />
+      <workItem from="1561164781196" duration="7763000" />
+      <workItem from="1561173227555" duration="2676000" />
     </task>
     <task id="LOCAL-00001" summary="v2.12">
       <created>1561081700693</created>
@@ -292,11 +292,18 @@
       <option name="project" value="LOCAL" />
       <updated>1561120982984</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="v2.14—修复支持Get路由search传值问题">
+      <created>1561169813019</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561169813019</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42261000" />
+    <option name="totallyTimeSpent" value="48402000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -308,16 +315,16 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="315" y="385" width="1940" height="1008" extended-state="0" />
+    <frame x="351" y="29" width="1940" height="1003" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7725694" visible="true" weight="0.043112513" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7725694" visible="true" weight="0.14616193" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.22743055" side_tool="true" weight="0.24821684" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.19908467" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25431532" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -379,11 +386,29 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="v2.12" />
     <MESSAGE value="v2.13" />
-    <option name="LAST_COMMIT_MESSAGE" value="v2.13" />
+    <MESSAGE value="v2.14—修复支持Get路由search传值问题" />
+    <option name="LAST_COMMIT_MESSAGE" value="v2.14—修复支持Get路由search传值问题" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/public/index.html">
@@ -494,10 +519,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/test.js" />
-    <entry file="file://$PROJECT_DIR$/src/index.js">
+    <entry file="file://$PROJECT_DIR$/src/view/dyrouteTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        <state relative-caret-position="54">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -510,8 +535,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/view/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="675">
+          <caret line="28" column="37" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="37" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
@@ -528,41 +553,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/axios_config.js">
+    <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="54">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/view/dyrouteTest.js">
+    <entry file="file://$PROJECT_DIR$/src/axios_config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
+        <state relative-caret-position="162">
+          <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#116#125#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/router/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="32" column="28" lean-forward="true" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state relative-caret-position="1350">
+          <caret line="50" column="39" lean-forward="true" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
+            <element signature="n#Root#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/router/RouteGuard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        <state relative-caret-position="-1458">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
-            <element signature="e#83#144#0" expanded="true" />
-            <element signature="n#!!block;n#componentWillMount#0;n#RouteGuard#0" />
-            <element signature="n#!!block;n#shouldComponentUpdate#0;n#RouteGuard#0" />
+            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#1210#1246#0" />
+            <element signature="e#1772#1811#0" />
+            <element signature="e#2014#2195#0" />
+            <element signature="e#2216#2236#0" />
           </folding>
         </state>
       </provider>
