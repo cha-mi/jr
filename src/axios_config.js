@@ -1,18 +1,19 @@
 import axios from 'axios'
-import {store,action} from './store/store'
+import React from 'react';
+import {action, store} from './store/store'
 
 //是否启动axios拦截器
 let instanceIsStart_up = true
 
-//测试403跳转
+// 测试403跳转
 // setTimeout(function () {
 //     ToLogin();
 // },3000)
 
 /*跳至登录页*/
 function ToLogin() {
-    let beforeTo =store.getState().history.location.pathname;
-    store.getState().history.replace({pathname:'/login',state:{beforeTo}})
+    let beforeTo = React.Component.history.location.pathname;
+    React.Component.history.replace({pathname: '/login', state: {beforeTo}})
     /*重定向至登录页，同时绑定state.beforeTo(跳转前页面路径)*/
 }
 
@@ -45,6 +46,7 @@ const reqErr =(status,other)=>{
             console.log(other);
     }
 };
+
 
 //创建实例，timeout是请求时长
 let instance =axios.create({

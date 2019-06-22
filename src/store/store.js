@@ -5,7 +5,6 @@ const defaultState={
     isLogin:false,
     token:null,
     username:null,
-    history:null,     //路由对象
 };
 
 //reducer

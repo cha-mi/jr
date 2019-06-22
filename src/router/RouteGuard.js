@@ -1,36 +1,38 @@
 import React, {Component} from 'react';
 import {Redirect, Route, withRouter} from 'react-router-dom';
-import {connect} from 'react-redux'
-import {action} from "../store/store";
 import _404 from '../view/_404'
 import {InspectionRules, RouteGuardIsStart_up} from './router'
 
 //Redirect 重定向
 class RouteGuard extends Component {
-
+    // constructor(props){
+    //     super(props)
+    //     console.log(React.Component.history)
+    // }
     /*用于拦截第一次进来修改仓库触发update生命周期*/
-    state = {
-        firstLoad: false
-    };
+
+    // state = {firstLoad: false};
 
     componentWillMount() {
-        this.props.ChangeState(store => {
-            store.history = this.props.history;
-        })
-        // eslint-disable-next-line react/no-direct-mutation-state
-        this.state.firstLoad = true   //不触发更新视图
+        React.Component.history = this.props.history;
+        // this.props.ChangeState(store => {
+        //     store.history = this.props.history;
+        // })
+        // // eslint-disable-next-line react/no-direct-mutation-state
+        // this.state.firstLoad = true   //不触发更新视图
         console.log('~~~~~~~~~~~~~~~~~~~');
         console.log('我是路由守卫', this)
     }
 
-    shouldComponentUpdate(nextProps, nextState, nextContext) {
-        /*拦截*/
-        if (this.state.firstLoad) {// eslint-disable-next-line react/no-direct-mutation-state
-            this.state.firstLoad = false
-            return false
-        }
-        return true
-    }
+    //
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     /*拦截*/
+    //     if (this.state.firstLoad) {// eslint-disable-next-line react/no-direct-mutation-state
+    //         this.state.firstLoad = false
+    //         return false
+    //     }
+    //     return true
+    // }
 
     render() {
 
@@ -119,6 +121,4 @@ class RouteGuard extends Component {
 }
 
 
-export default withRouter(connect((store) => {
-    return {store}
-}, action)(RouteGuard))
+export default withRouter(RouteGuard)

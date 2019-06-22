@@ -15,7 +15,6 @@ React.Component.prototype.$localStorage = LocalStorage;
 //全局样式
 React.Component.prototype.$style=style;
 
-
 ReactDOM.render(
     <Provider store={store}>
         <Root/>
