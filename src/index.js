@@ -5,7 +5,8 @@ import {Provider} from 'react-redux';
 import {store} from './store/store'
 import {Cookie, instance, LocalStorage} from './axios_config'
 import './assets/base.css';
-import style from './assets/default.module.sass'
+import 'antd/dist/antd.css'
+import style from './assets/default.module.scss'
 
 /* npm install node-sass -D 引入sass支持*/
 

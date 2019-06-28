@@ -5,8 +5,13 @@ import home from '../view/home'
 import App from '../view/App';
 import login from '../view/login'
 import dyrouteTest from '../view/dyrouteTest'
-
-
+import Register from '../view/Register'
+import JrHeader from '../view/component/JrHeader'
+import JrFooter from '../view/component/JrFooter'
+import My from '../view/My'
+import Product from '../view/Product'
+import Solve from '../view/Solve'
+import Channel from '../view/Channel'
 /*
 * path      映射路径
 * component 组件对象
@@ -19,20 +24,41 @@ const routerConfig = [
         auth: false
     },
     {
-        path:'/home',
-        component:home,
-        auth:true
+        path: '/home',
+        component: home,
+        auth: false
     },
     {
-        path:'/login',
-        component:login,
-        auth:false
+        path: '/login',
+        component: login,
+        auth: false
+    },
+    {
+        path: '/register',
+        component: Register,
+        auth: false
+    },{
+        path: '/my',
+        component: My,
+        auth: false
+    },{
+        path: '/product',
+        component: Product,
+        auth: false
+    },{
+        path: '/channel',
+        component: Channel,
+        auth: false
+    },{
+        path: '/solve',
+        component: Solve,
+        auth: false
     },
     //动态路由测试
     {
-        path:'/dyrouteTest/:kms/:mbs',
-        component:dyrouteTest,
-        auth:false
+        path: '/dyrouteTest/:kms/:mbs',
+        component: dyrouteTest,
+        auth: false
     },
 ];
 
@@ -62,11 +88,14 @@ const InspectionRules = (next, Redirect) => {
 class Root extends Component {
     render() {
         return (
-            <Router >
-                <Switch>
-                    <RouteGuard config={routerConfig}/>
-                </Switch>
-            </Router>
+                <Router>
+                    <JrHeader/>
+                    <Switch>
+                        <RouteGuard config={routerConfig}/>
+                    </Switch>
+                    <JrFooter/>
+                </Router>
+
         )
     }
 }

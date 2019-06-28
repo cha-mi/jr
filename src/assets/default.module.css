@@ -1,0 +1,157 @@
+.login {
+  height: 100%;
+  background: #ffffff; }
+  .login header {
+    height: 0.43rem;
+    text-align: center;
+    line-height: 0.43rem;
+    width: 100%;
+    background: #F4F4F4;
+    position: static; }
+  .login .inp {
+    margin-top: 0.2rem;
+    padding: 0.15rem; }
+
+.register {
+  height: 100%;
+  background: #fff; }
+  .register header {
+    height: 0.43rem;
+    text-align: center;
+    line-height: 0.43rem;
+    width: 100%;
+    background: #F4F4F4;
+    position: static; }
+  .register .inp {
+    margin-top: 0.2rem;
+    padding: 0.15rem; }
+
+.header .top {
+  height: 0.42rem;
+  background: #0B1C33;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.1rem;
+  z-index: 999; }
+  .header .top img {
+    width: 0.89rem;
+    height: 100%; }
+.header .leftMain {
+  width: 40%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  left: -40%;
+  top: 0;
+  z-index: 11;
+  transition: all 0.3s linear; }
+  .header .leftMain ul {
+    padding: 0.2rem 0 0 0.2rem; }
+.header .cover {
+  position: fixed;
+  top: 0rem;
+  left: 0rem;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+  z-index: 10;
+  display: none; }
+
+.banner :global(.ant-carousel) {
+  height: 1.7rem;
+  width: 100%; }
+  .banner :global(.ant-carousel) div {
+    height: 100%;
+    width: 100%; }
+  .banner :global(.ant-carousel) .big {
+    height: 100%;
+    width: 100%; }
+  .banner :global(.ant-carousel) .small {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.2s linear; }
+
+.search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.1rem 0;
+  background: #F6F6F6; }
+
+.foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.6rem;
+  background: #fff;
+  border-top: 0.01rem solid #888;
+  display: flex;
+  justify-content: space-between; }
+  .foot .footList {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 20%; }
+
+.home {
+  margin-top: 0.42rem;
+  background: #F6F6F6; }
+  .home .navBanner {
+    height: 0.4rem;
+    background: #fff; }
+    .home .navBanner .news {
+      color: #fbcc00;
+      display: block;
+      width: 0.44rem;
+      font-size: 0.12rem;
+      text-align: center;
+      border-right: 0.01rem solid #eee;
+      position: absolute;
+      top: 0;
+      left: 0.1rem;
+      padding: 0.05rem;
+      line-height: 0.15rem; }
+    .home .navBanner :global(.ant-carousel) {
+      height: 0.4rem;
+      width: 80%;
+      float: right;
+      padding-right: .1rem; }
+      .home .navBanner :global(.ant-carousel) h3 {
+        height: 0.4rem;
+        line-height: 0.4rem;
+        overflow: hidden;
+        white-space: nowrap; }
+  .home .static {
+    padding-top: 0.2rem; }
+    .home .static .tit {
+      height: 0.72rem;
+      text-align: center; }
+      .home .static .tit h1 {
+        font-size: 0.18rem; }
+    .home .static .serve_list {
+      display: flex;
+      flex-wrap: wrap; }
+      .home .static .serve_list li {
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 0.15rem; }
+        .home .static .serve_list li img {
+          width: 0.35rem;
+          height: 0.35rem; }
+
+/*# sourceMappingURL=default.module.css.map */
