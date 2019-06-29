@@ -183,7 +183,11 @@ export default class home extends Component {
                                     </div>
                                 </li>
                             })}
-                            <a href="javascript:void (0);">查看更多</a>
+                            <a href="javascript:void (0);" onClick={()=>{
+                                this.props.history.push({
+                                    pathname:'product'
+                                })
+                            }}>查看更多</a>
                         </ul>
                     </div>
                 </div>

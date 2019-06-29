@@ -79,7 +79,7 @@ export default class Register extends Component {
             })
             let data = await axios({
                 method: 'post',
-                url: 'http://106.14.81.245:3100/loginRegister/register',
+                url: 'http://localhost:8080/loginRegister/register',
                 data: {
                     tel: this.state.tel,
                     username: this.state.username,
@@ -109,6 +109,17 @@ export default class Register extends Component {
 
     }
 
+    async verify(e){
+        // console.log(e.target.value)
+        let data = await axios({
+            methods:'post',
+            url:'http://localhost:8080/loginRegister/verifyRegister',
+            data:{
+                verify:e.target.value
+            }
+        })
+        console.log(data)
+    }
     render() {
         let styles = this.$style
         const { result } = this.state;
@@ -132,7 +143,7 @@ export default class Register extends Component {
                 <div className={styles.inp}>
                     <Tooltip placement="topLeft" title={this.state.tip}>
                         <Input size="large" placeholder="请输入手机号码" allowClear value={this.state.tel}
-                               onChange={this.telChange.bind(this)}/>
+                               onChange={this.telChange.bind(this)} onBlur={this.verify.bind(this)}/>
                     </Tooltip>
                     <Input size="large" placeholder="请输入用户名" allowClear onChange={this.userChange.bind(this)}
                            style={{marginTop: '0.2rem'}}/>

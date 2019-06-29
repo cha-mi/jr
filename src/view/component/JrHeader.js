@@ -23,35 +23,45 @@ class JrHeader extends Component {
         const brands = [
             {
                 type: 'bank',
-                title: '首页'
+                title: '首页',
+                path:'home'
             },
             {
                 type: 'apartment',
-                title: '产品'
+                title: '产品',
+                path:'product'
             }, {
                 type: 'branches',
-                title: '渠道产品'
+                title: '渠道产品',
+                path:'channel'
             }, {
                 type: 'file-search',
-                title: '解决方案'
+                title: '解决方案',
+                path:'solve',
             }, {
                 type: 'inbox',
-                title: '案例'
+                title: '案例',
+                path:'/'
             }, {
                 type: 'question',
-                title: '帮助'
+                title: '帮助',
+                path:'/'
             }, {
                 type: 'rise',
-                title: '合作'
+                title: '合作',
+                path:'/'
             }, {
                 type: 'container',
-                title: '文档'
+                title: '文档',
+                path:'/'
             }, {
                 type: 'fire',
-                title: '服务支持'
+                title: '服务支持',
+                path:'/'
             }, {
                 type: 'meh',
-                title: '关于我们'
+                title: '关于我们',
+                path:'/'
             },
         ]
         return (
@@ -76,7 +86,14 @@ class JrHeader extends Component {
                         <ul>
                             {
                                 brands.map((item, index) => {
-                                    return <li key={index}>
+                                    return <li key={index} onClick={()=>{
+                                            this.props.history.push({
+                                                pathname:item.path
+                                            })
+                                        this.refs.leftMenu.style.left = '-40%'
+                                        this.refs.mark.style.display = 'none'
+                                    }
+                                    }>
                                         <Icon type={item.type}
                                               style={{marginRight: '0.1rem', marginBottom: '0.15rem'}}/> {item.title}
                                     </li>

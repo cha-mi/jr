@@ -7,6 +7,15 @@ class RouteGuard extends Component {
     componentWillMount() {
         React.Component.history = this.props.history;
     }
+    componentWillReceiveProps(prop){
+        console.log(prop)
+    }
+    state = {
+        asynchronous: null,
+    }
+    componentDidCatch(e){
+        console.log(e)
+    }
     render() {
 
         const {location, config} = this.props;
@@ -25,12 +34,30 @@ class RouteGuard extends Component {
                 return <Route exact path={isGetRoute ? pathname : target.path} component={target.component}/>
             } else if (target && target.auth) {
                 let next = () => {
-                    return <Route exact path={isGetRoute ? pathname : target.path} component={target.component}/>
+                    console.log("next")
+                    setTimeout(()=>{
+                        this.setState({
+                            asynchronous: <Route exact path={isGetRoute ? pathname : target.path}
+                                                 component={target.component}/>
+                        })
+                    },0)
+
                 }
                 let Redir = (toTarget) => {
-                    return <Redirect to={{pathname: toTarget, state: {beforeTo: target.path}}}/>
+                    console.log("Redir")
+                    setTimeout(()=>{
+                        this.setState({
+                            asynchronous: <Redirect to={{pathname: toTarget, state: {beforeTo: target.path}}}/>
+                        })
+                    },0)
+
                 }
-                return InspectionRules(next, Redir)
+                if (!this.state.asynchronous) {
+                    InspectionRules(next, Redir)
+                }
+                let ob = Object.assign({}, this.state.asynchronous ? this.state.asynchronous : <div>Loading</div>)
+                this.state.asynchronous = null;
+                return ob;
             } else {
                 return <NotFound404/>
             }

@@ -27,7 +27,7 @@ const routerConfig = [
     {
         path: '/home',
         component: home,
-        auth: false
+        auth: true
     },
     {
         path: '/login',
@@ -82,11 +82,14 @@ const InspectionRules = (next, Redirect) => {
     /*案例：Math.random()代替登录状态或者token模拟*/
     if (Math.random() > 0.5) {
         // console.log('通过验证')
-        return next();
+        next();
     } else {
         // console.log('验证失败')
-        return Redirect('/login')
+        Redirect('/login')
     }
+    // setTimeout(function () {
+    //     next();
+    // },3000)
 }
 
 
