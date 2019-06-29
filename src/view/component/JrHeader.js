@@ -56,13 +56,21 @@ class JrHeader extends Component {
         ]
         return (
             <div
-                style={{display: this.props.location.pathname.split('/')[1] === 'login' || this.props.location.pathname.split('/')[1] === 'register' ? 'none' : 'block'}}>
+                style={{display: this.props.location.pathname.split('/')[1] === 'login' || this.props.location.pathname.split('/')[1] === 'register' || this.props.location.pathname.split('/')[1] === 'apply' ? 'none' : 'block'}}>
                 <div className={styles.header}>
                     <div className={styles.top}>
                         <Icon type="align-left" style={{color: 'white', fontSize: '0.20rem'}}
                               onClick={this.showMenu.bind(this)}/>
-                        <img src={require("../../assets/logo.png")} alt="这是logo"/>
-                        <Icon type="user" style={{color: 'white', fontSize: '0.20rem'}}/>
+                        <img src={require("../../assets/logo.png")} alt="这是logo" onClick={()=>{
+                            this.props.history.push({
+                                pathname:'home'
+                            })
+                        }}/>
+                        <Icon type="user" style={{color: 'white', fontSize: '0.20rem'}} onClick={()=>{
+                            this.props.history.push({
+                                pathname:'my'
+                            })
+                        }}/>
                     </div>
                     <div className={styles.leftMain} ref='leftMenu'>
                         <ul>

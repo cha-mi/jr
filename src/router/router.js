@@ -12,6 +12,7 @@ import My from '../view/My'
 import Product from '../view/Product'
 import Solve from '../view/Solve'
 import Channel from '../view/Channel'
+import Apply from '../view/Apply'
 /*
 * path      映射路径
 * component 组件对象
@@ -52,6 +53,10 @@ const routerConfig = [
     },{
         path: '/solve',
         component: Solve,
+        auth: false
+    },{
+        path: '/apply',
+        component: Apply,
         auth: false
     },
     //动态路由测试

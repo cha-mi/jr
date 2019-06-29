@@ -38,7 +38,7 @@ export default withRouter(class JrFooter extends Component {
         return (
             <div className={styles.foot}>
                 {this.state.arr.map((item,index)=>{
-                    return <div key={index} className={styles.footList} style={{color:this.props.location.pathname===item.path?'#FBCC00':''}} onClick={()=>{
+                    return <div key={index} className={styles.footList} style={{color:this.props.location.pathname===item.path?'#FBCC00':''}}  onClick={()=>{
                         this.props.history.push({
                             pathname:item.path
                         })
@@ -46,7 +46,7 @@ export default withRouter(class JrFooter extends Component {
                     }>
                         <Icon type={item.type} style={{
                             fontSize:'0.22rem',
-                        }}/>
+                        }} />
                         <p style={{
                             fontSize:'0.12rem',
                             marginBottom:'0'
