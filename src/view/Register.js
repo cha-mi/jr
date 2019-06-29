@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Input, Tooltip, Button, message, Icon,DatePicker,AutoComplete} from 'antd';
+import {Input, Tooltip, Button, message, Icon, DatePicker, AutoComplete} from 'antd';
 import axios from 'axios'
 
 export default class Register extends Component {
@@ -10,13 +10,25 @@ export default class Register extends Component {
             username: '',
             password: '',
             email: '',
-            date:'',
+            date: '',
             tip: "请输入11位的手机号码",
             loading: false,
             telState: false,
             result: [],
         }
+        this.timer = null
+    }
 
+    async verify(e) {
+        // console.log(e.target.value)
+        let data = await axios({
+            method: 'post',
+            url: 'http://localhost:8080/loginRegister/verifyRegister',
+            data: {
+                verify: e.target.value
+            }
+        })
+        return data.data
     }
 
     async telChange(e) {
@@ -44,6 +56,11 @@ export default class Register extends Component {
         this.setState({
             username: val
         })
+        clearInterval(this.timer)
+        this.timer = setTimeout(async() => {
+            let data = await this.verify.bind(this)
+            console.log(data)
+        }, 800)
     }
 
     pswChange(e) {
@@ -58,20 +75,23 @@ export default class Register extends Component {
             email: val
         })
     }
-    dateChange(date,datestring){
+
+    dateChange(date, datestring) {
         this.setState({
-            date:datestring
+            date: datestring
         })
     }
+
     handleSearch = value => {
         let result;
         if (!value || value.indexOf('@') >= 0) {
             result = [];
         } else {
-            result = ['gmail.com', '163.com', 'qq.com','outlook.com'].map(domain => `${value}@${domain}`);
+            result = ['gmail.com', '163.com', 'qq.com', 'outlook.com'].map(domain => `${value}@${domain}`);
         }
-        this.setState({ result });
+        this.setState({result});
     }
+
     async reg() {
         if (this.state.telState) {
             this.setState({
@@ -83,8 +103,8 @@ export default class Register extends Component {
                 data: {
                     tel: this.state.tel,
                     username: this.state.username,
-                    email:this.state.email,
-                    date:this.state.date,
+                    email: this.state.email,
+                    date: this.state.date,
                     password: this.state.password,
 
                 }
@@ -109,21 +129,11 @@ export default class Register extends Component {
 
     }
 
-    async verify(e){
-        // console.log(e.target.value)
-        let data = await axios({
-            methods:'post',
-            url:'http://localhost:8080/loginRegister/verifyRegister',
-            data:{
-                verify:e.target.value
-            }
-        })
-        console.log(data)
-    }
+
     render() {
         let styles = this.$style
-        const { result } = this.state;
-        const { Option } = AutoComplete
+        const {result} = this.state;
+        const {Option} = AutoComplete
         const children = result.map(email => <Option key={email}>{email}</Option>);
         return (
             <div className={styles.register}>
@@ -143,16 +153,18 @@ export default class Register extends Component {
                 <div className={styles.inp}>
                     <Tooltip placement="topLeft" title={this.state.tip}>
                         <Input size="large" placeholder="请输入手机号码" allowClear value={this.state.tel}
-                               onChange={this.telChange.bind(this)} onBlur={this.verify.bind(this)}/>
+                               onChange={this.telChange.bind(this)}/>
                     </Tooltip>
                     <Input size="large" placeholder="请输入用户名" allowClear onChange={this.userChange.bind(this)}
                            style={{marginTop: '0.2rem'}}/>
 
-                    <AutoComplete onSearch={this.handleSearch} size="large" placeholder="请输入邮箱地址" allowClear onChange={this.emailChange.bind(this)}
-                                  style={{marginTop: '0.2rem',width:'100%'}}>
+                    <AutoComplete onSearch={this.handleSearch} size="large" placeholder="请输入邮箱地址" allowClear
+                                  onChange={this.emailChange.bind(this)}
+                                  style={{marginTop: '0.2rem', width: '100%'}}>
                         {children}
                     </AutoComplete>
-                    <DatePicker size="large" style={{marginTop: '0.2rem',width:'100%'}} onChange={this.dateChange.bind(this)} placeholder='生日'/>
+                    <DatePicker size="large" style={{marginTop: '0.2rem', width: '100%'}}
+                                onChange={this.dateChange.bind(this)} placeholder='生日'/>
                     <Input.Password size="large" placeholder="请输入密码" onChange={this.pswChange.bind(this)}
                                     style={{marginTop: '0.2rem'}}/>
 

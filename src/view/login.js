@@ -38,6 +38,7 @@ export default class Register extends Component {
                 password: this.state.password
             }
         })
+        console.log(data)
         this.setState({
             loading: false
         })
