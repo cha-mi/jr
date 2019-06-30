@@ -12,24 +12,17 @@ export default class Register extends Component {
             email: '',
             date: '',
             tip: "请输入11位的手机号码",
+            userTip: '请输入用户名',
+            pswTip: '请输入密码',
+            emailTip:'请输入正确邮箱地址',
             loading: false,
-            telState: false,
+            // telState: false,
             result: [],
+            bool: []
         }
         this.timer = null
     }
 
-    async verify(e) {
-        // console.log(e.target.value)
-        let data = await axios({
-            method: 'post',
-            url: 'http://localhost:8080/loginRegister/verifyRegister',
-            data: {
-                verify: e.target.value
-            }
-        })
-        return data.data
-    }
 
     async telChange(e) {
 
@@ -38,48 +31,157 @@ export default class Register extends Component {
         await this.setState({
             tel: val
         })
-        if (reg.test(this.state.tel)) {
-            this.setState({
-                tip: '',
-                telState: true
-            })
+        if (reg.test(this.state.tel.trim())) {
+
+            clearInterval(this.timer)
+            this.timer = setTimeout(async () => {
+                let data = await axios({
+                    method: 'post',
+                    url: 'http://localhost:8080/loginRegister/verifyRegister',
+                    data: {
+                        verify: this.state.tel
+                    }
+                })
+                if (data.data) {
+                    this.setState({
+                        tip: '',
+                    })
+                    this.refs.tels.input.style.borderColor = 'rgb(217, 217, 217)'
+                    this.state.bool[0]=1
+                } else {
+                    this.setState({
+                        tip: '该手机号码已经被注册',
+                    })
+                    this.refs.tels.input.style.borderColor = 'red'
+                    this.state.bool[0]=0
+
+                }
+                // console.log(data.data)
+            }, 800)
         } else {
             this.setState({
                 tip: '请输入11位的手机号码',
-                telState: false
             })
+            this.refs.tels.input.style.borderColor = 'red'
+            this.state.bool[0]=0
+
         }
     }
 
     userChange(e) {
         let val = e.target.value
-        this.setState({
-            username: val
-        })
-        clearInterval(this.timer)
-        this.timer = setTimeout(async() => {
-            let data = await this.verify.bind(this)
-            console.log(data)
-        }, 800)
+        if (val.trim()){
+            this.setState({
+                username: val
+            })
+            clearInterval(this.timer)
+            this.timer = setTimeout(async () => {
+                let data = await axios({
+                    method: 'post',
+                    url: 'http://localhost:8080/loginRegister/verifyRegister',
+                    data: {
+                        verify: this.state.username
+                    }
+                })
+                if (data.data) {
+                    this.setState({
+                        userTip: '',
+                    })
+                    this.refs.users.input.style.borderColor = 'rgb(217, 217, 217)'
+                    this.state.bool[1]=1
+
+                } else {
+                    this.setState({
+                        userTip: '该用户名已经被注册',
+                    })
+                    this.refs.users.input.style.borderColor = 'red'
+                    this.state.bool[1]=0
+
+                }
+            }, 800)
+        } else {
+            this.setState({
+                userTip: '该用户名已经被注册',
+            })
+            this.refs.users.input.style.borderColor = 'red'
+            this.state.bool[1]=0
+
+        }
+
     }
 
     pswChange(e) {
         let val = e.target.value
-        this.setState({
-            password: val
-        })
+        if (val.trim()) {
+            this.setState({
+                password: val,
+                pswTip: ''
+            })
+            // this.refs.psws.input.style.borderColor = 'rgb(217, 217, 217)'
+            this.state.bool[2]=1
+
+        } else {
+            this.setState({
+                pswTip: '请输入密码'
+            })
+            // this.refs.psws.input.style.borderColor = 'red'
+            this.state.bool[2]=0
+
+        }
+
+
     }
 
-    emailChange(val) {
-        this.setState({
-            email: val
-        })
+    async emailChange(val) {
+        let reg = /\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/
+        console.log(reg.test(val.trim()))
+        if (reg.test(val.trim())) {
+            clearInterval(this.timer)
+           await this.setState({
+                email:val
+            })
+            console.log(this.state.email)
+            this.timer = setTimeout(async () => {
+                let data = await axios({
+                    method: 'post',
+                    url: 'http://localhost:8080/loginRegister/verifyRegister',
+                    data: {
+                        verify: this.state.email
+                    }
+                })
+                console.log(data.data)
+                if (data.data) {
+                    this.setState({
+                        emailTip: '',
+                    })
+                    this.state.bool[3]=1
+
+                } else {
+                    this.setState({
+                        emailTip: '该邮箱地址已经被注册',
+                    })
+                    this.state.bool[3]=0
+
+                }
+                // console.log(data.data)
+            }, 800)
+        } else {
+            this.setState({
+                pswTip: '请输入正确的邮箱地址'
+            })
+            this.state.bool[3]=0
+
+        }
     }
 
     dateChange(date, datestring) {
-        this.setState({
-            date: datestring
-        })
+        if (datestring.trim()){
+            this.setState({
+                date: datestring
+            })
+        }
+        this.state.bool[4]=1
+
     }
 
     handleSearch = value => {
@@ -93,7 +195,11 @@ export default class Register extends Component {
     }
 
     async reg() {
-        if (this.state.telState) {
+        console.log(this.state.bool)
+        let res = this.state.bool.reduce((item,temp)=>{
+            return temp + item
+        })
+        if (res===5) {
             this.setState({
                 loading: true,
             })
@@ -112,16 +218,14 @@ export default class Register extends Component {
             this.setState({
                 loading: false
             })
-            if (data.data.state === 0) {
-                message.info(data.data.msg)
-            } else if (data.data.state === 1) {
-                message.info(data.data.msg)
+            console.log(data)
+            if (data.data) {
+                message.info('注册成功')
                 this.props.history.push({
-                    pathname: "/login",
-                    state: {fromDashboard: true}
+                    pathname:'login'
                 })
-            } else if (data.data.state === 2) {
-                message.info(data.data.msg)
+            } else {
+                message.info('注册失败')
             }
         } else {
             message.info('请按要求输入完整')
@@ -153,20 +257,26 @@ export default class Register extends Component {
                 <div className={styles.inp}>
                     <Tooltip placement="topLeft" title={this.state.tip}>
                         <Input size="large" placeholder="请输入手机号码" allowClear value={this.state.tel}
-                               onChange={this.telChange.bind(this)}/>
+                               onChange={this.telChange.bind(this)} ref='tels'/>
                     </Tooltip>
-                    <Input size="large" placeholder="请输入用户名" allowClear onChange={this.userChange.bind(this)}
-                           style={{marginTop: '0.2rem'}}/>
+                    <Tooltip placement="topLeft" title={this.state.userTip}>
+                        <Input size="large" placeholder="请输入用户名" allowClear onChange={this.userChange.bind(this)}
+                               style={{marginTop: '0.2rem'}} ref='users'/>
+                    </Tooltip>
+                    <Tooltip placement="topLeft" title={this.state.emailTip}>
+                        <AutoComplete onSearch={this.handleSearch} size="large" placeholder="请输入邮箱地址" allowClear
+                                      onChange={this.emailChange.bind(this)}
+                                      style={{marginTop: '0.2rem', width: '100%'}} ref='emails'>
+                            {children}
+                        </AutoComplete>
+                    </Tooltip>
 
-                    <AutoComplete onSearch={this.handleSearch} size="large" placeholder="请输入邮箱地址" allowClear
-                                  onChange={this.emailChange.bind(this)}
-                                  style={{marginTop: '0.2rem', width: '100%'}}>
-                        {children}
-                    </AutoComplete>
                     <DatePicker size="large" style={{marginTop: '0.2rem', width: '100%'}}
                                 onChange={this.dateChange.bind(this)} placeholder='生日'/>
-                    <Input.Password size="large" placeholder="请输入密码" onChange={this.pswChange.bind(this)}
-                                    style={{marginTop: '0.2rem'}}/>
+                    <Tooltip placement="topLeft" title={this.state.pswTip}>
+                        <Input.Password size="large" placeholder="请输入密码" onChange={this.pswChange.bind(this)}
+                                        style={{marginTop: '0.2rem'}} ref='psws'/>
+                    </Tooltip>
 
                     <div style={{
                         marginTop: '0.2rem',

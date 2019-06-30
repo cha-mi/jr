@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import RouteGuard from './RouteGuard'
 import home from '../view/home'
 import App from '../view/App';
@@ -38,23 +38,23 @@ const routerConfig = [
         path: '/register',
         component: Register,
         auth: false
-    },{
+    }, {
         path: '/my',
         component: My,
-        auth: false
-    },{
+        auth: true
+    }, {
         path: '/product',
         component: Product,
         auth: false
-    },{
+    }, {
         path: '/channel',
         component: Channel,
         auth: false
-    },{
+    }, {
         path: '/solve',
         component: Solve,
         auth: false
-    },{
+    }, {
         path: '/apply',
         component: Apply,
         auth: false
@@ -79,8 +79,8 @@ const RouteGuardIsStart_up = true;
 *       ! 记得需要return返回出去
 * */
 const InspectionRules = (next, Redirect) => {
-    /*案例：Math.random()代替登录状态或者token模拟*/
-    if (Math.random() > 0.5) {
+    let token = sessionStorage.getItem("username")
+    if (token) {
         // console.log('通过验证')
         next();
     } else {
@@ -96,13 +96,14 @@ const InspectionRules = (next, Redirect) => {
 class Root extends Component {
     render() {
         return (
-                <Router>
-                    <JrHeader/>
-                    <Switch>
-                        <RouteGuard config={routerConfig}/>
-                    </Switch>
-                    <JrFooter/>
-                </Router>
+            <Router>
+                <JrHeader/>
+                <Switch>
+                    <Redirect exact from='/' to='/home'/>
+                    <RouteGuard config={routerConfig}/>
+                </Switch>
+                <JrFooter/>
+            </Router>
 
         )
     }

@@ -42,15 +42,15 @@ export default class Register extends Component {
         this.setState({
             loading: false
         })
-        if (data.data.state === 1) {
-            message.info(data.data.msg)
-            sessionStorage.setItem("username", this.state.tel)
-            sessionStorage.setItem("name", data.data.username)
+        if (data.data) {
+            message.info('登录成功')
+            // sessionStorage.setItem("username", this.state.tel)
+            sessionStorage.setItem("username", data.data)
             this.props.history.push({
                 pathname: 'my'
             })
         } else {
-            message.info(data.data.msg)
+            message.info('账号或密码出现错误')
             // this.props.history.push({
             //   pathname: "/login",
             //   state: {fromDashboard: true}

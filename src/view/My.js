@@ -1,38 +1,53 @@
 import React, {Component} from 'react'
 import {Icon} from 'antd'
-
+import  axios from 'axios'
 class My extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            startx:0,
-            movex:0
+            startx: 0,
+            movex: 0,
+            name: sessionStorage.getItem("username")
         }
     }
-    componentDidMount(){
-        this.refs.perInfo.ontouchstart= (ev)=> {
+
+    componentDidMount() {
+        this.refs.perInfo.ontouchstart = (ev) => {
             let touch = ev.targetTouches[0];
             this.setState({
-                startx:touch.pageX
+                startx: touch.pageX
             })
         }
-        this.refs.perInfo.ontouchmove= (ev)=> {
+        this.refs.perInfo.ontouchmove = (ev) => {
             let touch = ev.targetTouches[0];
             this.setState({
-                movex:touch.pageX
+                movex: touch.pageX
             })
-            let endx =  Math.abs(this.state.startx-this.state.movex)
-            if (endx>100) {
-                this.refs.perInfo.style.left='100%'
+            let endx = Math.abs(this.state.startx - this.state.movex)
+            if (endx > 100) {
+                this.refs.perInfo.style.left = '100%'
                 // this.refs.perInfo.style.display='none'
             }
         }
 
     }
-    showInfo(){
-        this.refs.perInfo.style.left='0'
+    loginOut(){
+        sessionStorage.removeItem("username")
+        this.props.history.push({
+            pathname:'/login'
+        })
+    }
+    async showInfo() {
+        this.refs.perInfo.style.left = '0'
+        // axios.defaults.withCredentials=true
+        let data = await axios({
+            method:'get',
+            url:'http://127.0.0.1:8080/getUserInfo'
+        })
+        console.log(data)
         // this.refs.perInfo.style.display='block'
     }
+
     render() {
 
         let styles = this.$style
@@ -42,7 +57,7 @@ class My extends Component {
                     <div className={styles.img}>
                         <img src={require('../assets/head.jpeg')} alt=""/>
                     </div>
-                    <div className={styles.name}>汕头吴彦祖</div>
+                    <div className={styles.name}>{this.state.name}</div>
                 </div>
                 <ul className={styles.myList}>
                     <li onClick={this.showInfo.bind(this)}>
@@ -81,7 +96,7 @@ class My extends Component {
                         </li>
                     </ul>
 
-                    <div className={styles.loginOut}>退出登录</div>
+                    <div className={styles.loginOut} onClick={this.loginOut.bind(this)}>退出登录</div>
                 </div>
             </div>
         );
