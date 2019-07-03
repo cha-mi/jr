@@ -173,7 +173,11 @@ export default class home extends Component {
                         </div>
                         <ul className={styles.product_list}>
                             {this.state.productList.map((item, index) => {
-                                return <li key={index}>
+                                return <li key={index} onClick={()=>{
+                                this.props.history.push({
+                                    pathname: 'apply'
+                                })}
+                                }>
                                     <div>
                                         <img src={item.url} alt=""/>
                                     </div>
@@ -201,13 +205,21 @@ export default class home extends Component {
                         <ul className={styles.solve_list}>
                             {
                                 this.state.solveList.map((item, index) => {
-                                    return <li key={index}>
+                                    return <li key={index} onClick={()=>{
+                                        this.props.history.push({
+                                            pathname:'apply'
+                                        })
+                                    }}>
                                         <img src={item.url} alt=""/>
                                         <span>{item.title}</span>
                                     </li>
                                 })
                             }
-                            <li>
+                            <li onClick={()=>{
+                                this.props.history.push({
+                                    pathname:'solve'
+                                })
+                            }}>
                                 <span>更多</span>
                             </li>
                         </ul>

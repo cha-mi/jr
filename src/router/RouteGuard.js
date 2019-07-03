@@ -8,7 +8,7 @@ class RouteGuard extends Component {
         React.Component.history = this.props.history;
     }
     componentWillReceiveProps(prop){
-        console.log(prop)
+        // console.log(prop)
     }
     state = {
         asynchronous: null,

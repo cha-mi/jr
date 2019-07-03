@@ -32,7 +32,7 @@ export default class Register extends Component {
         })
         let data = await axios({
             method: 'post',
-            url: 'http://localhost:8080/loginRegister/login',
+            url: 'http://106.14.81.245:8080/loginRegister/login',
             data: {
                 tel: this.state.tel,
                 password: this.state.password
@@ -77,7 +77,7 @@ export default class Register extends Component {
                     登录
                 </header>
                 <div className={styles.inp}>
-                    <Input size="large" placeholder="请输入手机号码" allowClear value={this.state.tel}
+                    <Input size="large" placeholder="请输入手机号码/邮箱/用户名" allowClear value={this.state.tel}
                            onChange={this.telChange.bind(this)}/>
                     <Input.Password size="large" placeholder="请输入密码" onChange={this.pswChange.bind(this)}
                                     style={{marginTop: '0.2rem'}}/>

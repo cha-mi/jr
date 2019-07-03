@@ -27,7 +27,7 @@ const routerConfig = [
     {
         path: '/home',
         component: home,
-        auth: true
+        auth: false
     },
     {
         path: '/login',
@@ -57,7 +57,7 @@ const routerConfig = [
     }, {
         path: '/apply',
         component: Apply,
-        auth: false
+        auth: true
     },
     //动态路由测试
     {

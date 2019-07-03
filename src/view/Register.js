@@ -37,7 +37,7 @@ export default class Register extends Component {
             this.timer = setTimeout(async () => {
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:8080/loginRegister/verifyRegister',
+                    url: 'http://106.14.81.245:8080/loginRegister/verifyRegister',
                     data: {
                         verify: this.state.tel
                     }
@@ -78,7 +78,7 @@ export default class Register extends Component {
             this.timer = setTimeout(async () => {
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:8080/loginRegister/verifyRegister',
+                    url: 'http://106.14.81.245:8080/loginRegister/verifyRegister',
                     data: {
                         verify: this.state.username
                     }
@@ -144,7 +144,7 @@ export default class Register extends Component {
             this.timer = setTimeout(async () => {
                 let data = await axios({
                     method: 'post',
-                    url: 'http://localhost:8080/loginRegister/verifyRegister',
+                    url: 'http://106.14.81.245:8080/loginRegister/verifyRegister',
                     data: {
                         verify: this.state.email
                     }
@@ -205,7 +205,7 @@ export default class Register extends Component {
             })
             let data = await axios({
                 method: 'post',
-                url: 'http://localhost:8080/loginRegister/register',
+                url: 'http://106.14.81.245:8080/loginRegister/register',
                 data: {
                     tel: this.state.tel,
                     username: this.state.username,

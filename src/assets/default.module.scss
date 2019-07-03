@@ -214,9 +214,12 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        margin-left: -1px;
-        margin-top: -1px;
-        border: 1px solid #F6F6F6;
+        margin-left: -0.01rem /* -1/100 */
+      ;
+        margin-top: -0.01rem /* -1/100 */
+      ;
+        border: 0.01rem /* 1/100 */
+        solid #F6F6F6;
         span {
           margin-top: .1rem;
         }
@@ -233,7 +236,8 @@
       a {
         margin: auto;
         color: #888888;
-        border: 1px solid #ccc;
+        border: 0.01rem /* 1/100 */
+        solid #ccc;
         padding: 0.03rem;
         margin-top: 0.1rem;
         margin-bottom: 0.2rem;
@@ -246,7 +250,8 @@
         margin-left: 2%;
         margin-top: 2%;
         height: 0.8rem;
-        border: 1px solid #ccc;
+        border: 0.01rem /* 1/100 */
+        solid #ccc;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -306,14 +311,20 @@
     padding: 0.2rem 0.15rem;
     li {
       height: 0.4rem;
-      border-bottom: 1px solid #cccccc;
+      border-bottom: 0.01rem /* 1/100 */
+      solid #cccccc;
       display: flex;
       justify-content: left;
       align-items: center;
-      border-left: 1px solid #F4F4F4;
+      border-left: 0.01rem /* 1/100 */
+      solid #F4F4F4;
       margin-bottom: 0.15rem;
       padding: 0 0.15rem;
-      box-shadow: -5px 9px 8px 0px rgba(0, 0, 0, 0.1);
+      box-shadow: -0.05rem /* -5/100 */
+      0.09rem /* 9/100 */
+      0.08rem /* 8/100 */
+      0rem /* 0/100 */
+      rgba(0, 0, 0, 0.1);
       border-radius: 0.08rem;
 
       span {
@@ -334,13 +345,14 @@
     ul {
       background: #fff;
       li {
-        border-bottom: 1px solid #F4F4F4;
+        border-bottom: 0.01rem /* 1/100 */
+        solid #F4F4F4;
         padding: 0.15rem 0.08rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
         img {
-          width: .45rem;
+          width: 0.45rem  /* 45/100 */;
           height: .45rem;
           border-radius: 50%;
         }
@@ -355,14 +367,54 @@
       background: #ffffff;
       margin-top: 0.1rem;
       border-radius: 0.08rem;
-      border: 1px solid #cccccc;
+      border: 0.01rem /* 1/100 */
+      solid #cccccc;
+    }
+  }
+
+  .applyInfo {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    background: #F4F4F4;
+    padding-top: 0.10rem;
+    transition: all 0.3s linear;
+
+    .min {
+      background: #fff;
+      border-radius: 0.1rem;
+      padding: 0.1rem;
+      margin-bottom: 0.1rem;
+      position: relative;
+    }
+    .min div:nth-of-type(1){
+     padding-bottom: 0.05rem;
+      margin-bottom: 0.05rem;
+      border-bottom: 1px solid #cccccc;
+    }
+    .min div:nth-of-type(1) .tit{
+      color: #61dafb;
+    }
+    .tit {
+      font-weight: bold;
+      width: 0.7rem;
+      display: inline-block;
+      text-align: right;
+    }
+    .satue{
+      position: absolute;
+      right: 0.1rem;
+      top: 0.1rem;
+      .tit{
+        color: red;
+      }
     }
   }
 }
 
-
-
-.apply{
+.apply {
   margin-top: 0.43rem;
   margin-bottom: 0.8rem;
   background: #F4F4F4;
@@ -380,46 +432,47 @@
     left: 0;
     z-index: 99;
   }
-  .banner{
+  .banner {
     height: 1.3rem;
     width: 100%;
-    img{
+    img {
       width: 100%;
       height: 100%;
     }
   }
 
-  .form{
+  .form {
     background: #fff;
     margin-top: 0.15rem;
-    table{
+    table {
       margin: auto;
       width: 90%;
-      tr{
-        td{
-         padding: 0.1rem;
+      tr {
+        td {
+          padding: 0.1rem;
         }
       }
-      tr:nth-of-type(1){
+      tr:nth-of-type(1) {
         line-height: 0.3rem;
-        td:nth-of-type(1){
+        td:nth-of-type(1) {
           width: 24%;
           vertical-align: top;
         }
       }
-      tr:nth-of-type(1) ~ *{
-        input{
-          border-bottom: 1px solid #888;
+      tr:nth-of-type(1) ~ * {
+        input {
+          border-bottom: 0.01rem /* 1/100 */
+          solid #888;
           width: 100%;
         }
-        textarea{
+        textarea {
           width: 100%;
           height: .6rem;
         }
       }
     }
   }
-  .btn{
+  .btn {
     margin: 0.15rem auto;
     width: 30%;
     height: 0.3rem;
@@ -428,5 +481,116 @@
     align-items: center;
     background: #FBCC00;
     color: white;
+  }
+}
+
+.product {
+  margin-top: 0.42rem;
+  margin-bottom: 0.6rem;
+  background: #F4F4F4;
+  .title {
+    height: 0.92rem;
+    text-align: center;
+    background: #ffffff;
+    padding: 0.2rem /* 20/100 */
+    0 0.1rem /* 10/100 */
+    0;
+    h1 {
+      font-size: 0.16rem;
+      font-weight: bold;
+    }
+  }
+  .proTit {
+    display: flex;
+    align-items: center;
+    img {
+      width: 0.3rem;
+      height: 0.3rem;
+    }
+  }
+
+  .minPro {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0.02rem;
+    .min {
+      width: 48%;
+      margin-top: 0.05rem;
+      height: 0.7rem;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 .05rem;
+      border-radius: 0.05rem;
+      img {
+        width: 0.35rem;
+        height: 0.35rem;
+      }
+      .con {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2, p {
+          margin: 0;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 0.1rem;
+        }
+      }
+    }
+  }
+}
+
+.channel {
+  .title {
+    height: 0.92rem;
+    text-align: center;
+    background: #ffffff;
+    padding: 0.2rem /* 20/100 */
+    0 0.1rem /* 10/100 */
+    0;
+    h1 {
+      font-size: 0.16rem;
+      font-weight: bold;
+    }
+  }
+  .list {
+    //margin-top: 0.1rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2%;
+    .min {
+      width: 49%;
+      margin-top: 0.05rem;
+      height: 0.7rem;
+      border: 1px solid #ccc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 .05rem;
+      border-radius: 0.05rem;
+      img {
+        width: 0.35rem;
+        height: 0.35rem;
+      }
+      .con {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2, p {
+          margin: 0;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 0.1rem;
+        }
+      }
+    }
   }
 }

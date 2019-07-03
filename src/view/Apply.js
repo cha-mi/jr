@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Icon, Radio, Input} from "antd"
+import {Icon, Radio, Input, message} from "antd"
+import axios from 'axios'
 
 export default class Apply extends Component {
 
@@ -7,7 +8,7 @@ export default class Apply extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: 1,
+            value: '',
             formList: [
                 {
                     type: '金频金融直播系统'
@@ -51,7 +52,12 @@ export default class Apply extends Component {
                 {
                     type: '融资租赁系统'
                 },
-            ]
+            ],
+            company: '',
+            city: '',
+            man: '',
+            tel: '',
+            msg: ''
         }
     }
 
@@ -66,9 +72,66 @@ export default class Apply extends Component {
     otherChange(e) {
         this.setState({
             otherValue: e.target.value,
-            value:e.target.value
+            value: e.target.value
         })
-        console.log(this.state.value)
+        // console.log(this.state.value)
+    }
+
+    companyChange = (e) => {
+        this.setState({
+            company: e.target.value
+        })
+    }
+    cityChange = (e) => {
+        this.setState({
+            city: e.target.value
+        })
+    }
+    manChange = (e) => {
+        this.setState({
+            man: e.target.value
+        })
+    }
+    telChange = (e) => {
+        this.setState({
+            tel: e.target.value
+        })
+    }
+    msgChange = (e) => {
+        this.setState({
+            msg: e.target.value
+        })
+    }
+
+    async send() {
+        if (this.state.value.trim() && this.state.company.trim() && this.state.city.trim() && this.state.man.trim() && this.state.tel.trim() && this.state.msg.trim()) {
+            let data = await axios({
+                method: 'post',
+                url: 'http://106.14.81.245:8080/insertApply',
+                data: {
+                    username: sessionStorage.getItem("username"),
+                    product: this.state.value,
+                    company: this.state.company,
+                    city: this.state.city,
+                    man: this.state.man,
+                    tel: this.state.tel,
+                    msg: this.state.msg
+                }
+            })
+            if (data.data) {
+                message.info('申请成功')
+                let inp = document.querySelectorAll('input')
+                inp.forEach((item)=>{
+                    item.value=''
+                })
+                this.refs.msg.value=''
+                // inp[inp.length].focus
+
+            }
+        } else {
+            message.info('请填写完整')
+        }
+
     }
 
     render() {
@@ -79,7 +142,7 @@ export default class Apply extends Component {
             lineHeight: '30px',
         };
         return (
-            <div className={styles.apply}>
+            <div className={styles.apply} ref='apply'>
                 <header>
                     <Icon type="left" style={{
                         position: 'fixed',
@@ -116,8 +179,9 @@ export default class Apply extends Component {
 
                                     <Radio style={radioStyle} value={this.state.otherValue} ref='other'>
                                         More...
-                                        {this.state.value === this.state.otherValue ? <Input style={{width: 100, marginLeft: 10}}
-                                                                         onChange={this.otherChange.bind(this)}/> : null}
+                                        {this.state.value === this.state.otherValue ?
+                                            <Input style={{width: 100, marginLeft: 10}}
+                                                   onChange={this.otherChange.bind(this)}/> : null}
                                     </Radio>
                                 </Radio.Group>
                             </td>
@@ -125,36 +189,36 @@ export default class Apply extends Component {
                         <tr>
                             <td>公司名称</td>
                             <td>
-                                <input type="text"/>
+                                <input type="text" onChange={this.companyChange}/>
                             </td>
                         </tr>
                         <tr>
                             <td>所属城市</td>
                             <td>
-                                <input type="text"/>
+                                <input type="text" onChange={this.cityChange}/>
                             </td>
                         </tr>
                         <tr>
                             <td>申请人</td>
                             <td>
-                                <input type="text"/>
+                                <input type="text" onChange={this.manChange}/>
                             </td>
                         </tr>
                         <tr>
                             <td>联系电话</td>
                             <td>
-                                <input type="text"/>
+                                <input type="text" onChange={this.telChange}/>
                             </td>
                         </tr>
                         <tr>
                             <td style={{verticalAlign: 'top'}}>其他留言</td>
                             <td>
-                                <textarea name="" id="" cols="30" rows="10"></textarea>
+                                <textarea name="" id="" cols="30" rows="10" onChange={this.msgChange} ref='msg'></textarea>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-                    <div className={styles.btn}>立即申请</div>
+                    <div className={styles.btn} onClick={this.send.bind(this)}>立即申请</div>
                 </div>
             </div>
         )
